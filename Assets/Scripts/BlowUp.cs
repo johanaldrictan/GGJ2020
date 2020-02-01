@@ -29,16 +29,27 @@ public class BlowUp : MonoBehaviour
         parent.GetComponent<MeshRenderer>().enabled = true;
         parent.GetComponent<SphereCollider>().enabled = true;
         parent.GetComponent<AnchorSphere>().enabled = false;
+        parent.GetComponent<Rigidbody>().useGravity = true;
         nextSpace = Time.time + spaceTimer;
         for(int i = 0; i < children.Length; i++)
         {
           children[i].GetComponent<MeshRenderer>().enabled = true;
           children[i].GetComponent<SphereCollider>().enabled = true;
+          children[i].GetComponent<Rigidbody>().useGravity = true;
+          children[i].transform.parent = null;
           Vector3 pos1 = children[i].transform.position;
           Vector3 pos2 = parent.transform.position;
           Vector3 direction = (Vector3.Normalize(pos1 - pos2)*10);
           children[i].GetComponent<Rigidbody>().velocity = (direction+player.GetComponent<Rigidbody>().velocity);
         }
+        //StartCoroutine(afterThree());
       }
+    }
+    IEnumerator afterThree()
+    {
+
+      yield return new WaitForSecondsRealtime(3);
+      Time.timeScale = 0.1f;
+
     }
 }

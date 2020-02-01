@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class CameraFollowPlayer : MonoBehaviour
 {
-    GameObject player;
+    GameObject parent;
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.gameObject.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, this.gameObject.transform.position.z);
+        parent = GameObject.FindWithTag("Parent");
+        this.gameObject.transform.position = new Vector3(parent.transform.position.x, parent.transform.position.y, this.gameObject.transform.position.z);
     }
 }
