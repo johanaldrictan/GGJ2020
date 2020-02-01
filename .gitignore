@@ -36,5 +36,6 @@ sysinfo.txt
 *.unitypackage
 
 # Wwise
-/pathToWwiseProject/Originals/SFX/*.akd
-/pathToWwiseProject/.cache/
+/GGJ2020_WwiseProject/Originals/SFX/*.akd
+/GGJ2020_WwiseProject/.cache/
+.zip
