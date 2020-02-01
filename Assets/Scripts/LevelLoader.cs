@@ -5,11 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
+    /*
     [SerializeField]
     private Animator transition;
     [SerializeField]
-    private float transitionTime = 1f;
-
+    */
+    [SerializeField]
+    private float transitionTime = 2f;
+    [SerializeField]
+    private PlaneShatterer shatterer;
     public void LoadNextLevel()
     {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
@@ -17,6 +21,7 @@ public class LevelLoader : MonoBehaviour
     IEnumerator LoadLevel(int levelIndex)
     {
         //trigger animation
+        shatterer.RepairScreen();
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(levelIndex);
     }
