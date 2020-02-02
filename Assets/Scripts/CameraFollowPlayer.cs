@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 public class CameraFollowPlayer : MonoBehaviour
 {
     GameObject parent;
+    [SerializeField]
+    private CinemachineVirtualCamera virtualCamera;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +17,6 @@ public class CameraFollowPlayer : MonoBehaviour
     void Update()
     {
         parent = GameObject.FindWithTag("Parent");
-        this.gameObject.transform.position = new Vector3(parent.transform.position.x, parent.transform.position.y, this.gameObject.transform.position.z);
+        virtualCamera.Follow = parent.transform;
     }
 }
