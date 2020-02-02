@@ -16,10 +16,15 @@ public class RedoneReformPlayer : MonoBehaviour
     bool selection = true;
     float toggleTimer = .000005f;
     float nextToggle = 0.0f;
+    Color selectColor;
+    public int yBoundNeg;
+    public int yBoundPos;
+    public int zBoundNeg;
+    public int zBoundPos;
     // Start is called before the first frame update
     void Start()
     {
-
+      selectColor = parent.GetComponent<Light>().color;
     }
 
     // Update is called once per frame
@@ -42,6 +47,10 @@ public class RedoneReformPlayer : MonoBehaviour
                 nextToggle = Time.time + toggleTimer;
                 spheres[Mathf.Abs(i%spheres.Length)].GetComponent<Light>().enabled = false;
                 i += 1;
+                if(yBoundNeg > spheres[Mathf.Abs(i%spheres.Length)].transform.position.y || yBoundPos < spheres[Mathf.Abs(i%spheres.Length)].transform.position.y || zBoundNeg > spheres[Mathf.Abs(i%spheres.Length)].transform.position.z || zBoundPos < spheres[Mathf.Abs(i%spheres.Length)].transform.position.z)
+                {
+                  i +=1;
+                }
                 currentSphere = spheres[Mathf.Abs(i%spheres.Length)];
                 OnSelect(currentSphere.transform);
                 currentSphere.GetComponent<Light>().enabled = true;
@@ -52,6 +61,10 @@ public class RedoneReformPlayer : MonoBehaviour
                 nextToggle = Time.time + toggleTimer;
                 spheres[Mathf.Abs(i%spheres.Length)].GetComponent<Light>().enabled = false;
                 i -= 1;
+                if(yBoundNeg > spheres[Mathf.Abs(i%spheres.Length)].transform.position.y || yBoundPos < spheres[Mathf.Abs(i%spheres.Length)].transform.position.y || zBoundNeg > spheres[Mathf.Abs(i%spheres.Length)].transform.position.z || zBoundPos < spheres[Mathf.Abs(i%spheres.Length)].transform.position.z)
+                {
+                  i -=1;
+                }
                 currentSphere = spheres[Mathf.Abs(i % spheres.Length)];
 
                 OnSelect(currentSphere.transform);
@@ -65,9 +78,9 @@ public class RedoneReformPlayer : MonoBehaviour
                 currentSphere.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
                 for(int j = 0; j < spheres.Length; j++)
                 {
-                  currentSphere.GetComponent<Light>().enabled = false;
                   if(currentSphere != spheres[j])
                   {
+                    currentSphere.GetComponent<Light>().enabled = false;
                     spheres[j].GetComponent<SphereCollider>().enabled = false;
                     spheres[j].GetComponent<Rigidbody>().useGravity = false;
                     spheres[j].GetComponent<StopSphereAtParent>().enabled = true;
@@ -79,6 +92,12 @@ public class RedoneReformPlayer : MonoBehaviour
                   }
                   if(j == spheres.Length-1)
                   {
+                    parent.GetComponent<Light>().enabled = true;
+                    parent.GetComponent<Light>().color = Color.yellow;
+                    parent.GetComponent<Light>().range = 10f;
+                    parent.GetComponent<Light>().intensity = 20f;
+                    parent.transform.position = currentSphere.transform.position;
+                    parent.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
                     parent.transform.rotation = Quaternion.Euler(0, 0, 0);
                     StartCoroutine(reformSlime());
                   }
@@ -127,6 +146,9 @@ public class RedoneReformPlayer : MonoBehaviour
       player.SetActive(true);
       player.transform.position = parent.transform.position;
       OnSelect(player.transform);
-
+      parent.GetComponent<Light>().enabled = false;
+      parent.GetComponent<Light>().color = selectColor;
+      parent.GetComponent<Light>().intensity = 1f;
+      parent.GetComponent<Light>().range = .5f;
     }
 }
