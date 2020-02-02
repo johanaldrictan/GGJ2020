@@ -58,18 +58,22 @@ public class ReformPlayer : MonoBehaviour
                 Time.timeScale = 1f;
                 childSpheres = GameObject.FindGameObjectsWithTag("Child");
                 parent = GameObject.FindWithTag("Parent");
-                parent.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+                parent.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
                 for(int i = 0; i < childSpheres.Length; i++)
                 {
-                    //children[i].GetComponent<MeshRenderer>().enabled = true;
                     childSpheres[i].GetComponent<SphereCollider>().enabled = false;
                     childSpheres[i].GetComponent<Rigidbody>().useGravity = false;
-                    //children[i].transform.parent = null;
                     childSpheres[i].GetComponent<StopSphereAtParent>().enabled = true;
                     Vector3 pos1 = childSpheres[i].transform.position;
                     Vector3 pos2 = new Vector3(parent.transform.position.x, parent.transform.position.y+1, parent.transform.position.z);
                     Vector3 direction = (Vector3.Normalize(pos2 - pos1)*30);
                     childSpheres[i].GetComponent<Rigidbody>().velocity = (direction+player.GetComponent<Rigidbody>().velocity);
+                    if(i == childSpheres.Length-1)
+                    {
+                      parent.transform.position = new Vector3(parent.transform.position.x, parent.transform.position.y+.5f, parent.transform.position.z);
+                      parent.transform.rotation = Quaternion.Euler(0, 0, 0);
+                      StartCoroutine(reformSlime());
+                    }
                 }
               selection = true;
             }
@@ -79,5 +83,44 @@ public class ReformPlayer : MonoBehaviour
             spheres[i].tag = "Parent";
             spheres[i].GetComponent<Light>().enabled = true;
         }
+    }
+    IEnumerator reformSlime()
+    {
+      yield return new WaitForSecondsRealtime(2);
+      for(int i = 0; i < spheres.Count; i++)
+      {
+        spheres[i].GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
+        spheres[i].GetComponent<MeshRenderer>().enabled = false;
+        spheres[i].GetComponent<SphereCollider>().enabled = false;
+        spheres[i].GetComponent<Rigidbody>().useGravity = false;
+        spheres[i].GetComponent<StopSphereAtParent>().enabled = false;
+        spheres[i].GetComponent<AnchorSphere>().enabled = false;
+        if(spheres[i] != parent)
+        {
+          spheres[i].transform.parent = parent.transform;
+        }
+      }
+      int k = 0;
+      while(k < childSpheres.Length)
+      {
+        for(int x = -1; x < 2; x++)
+        {
+          for(int y = -1; y < 2; y++)
+          {
+            if(x != 0 || y != 0)
+            {
+              childSpheres[k].transform.localPosition = new Vector3(x,y,0);
+              childSpheres[k].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+              k++;
+            }
+          }
+        }
+      }
+      parent.GetComponent<AnchorSphere>().enabled = true;
+      parent.transform.parent = player.transform;
+      parent.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+      player.SetActive(true);
+      player.transform.position = parent.transform.position;
+
     }
 }
