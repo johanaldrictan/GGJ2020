@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class ObjectMovement : MonoBehaviour
 {
+    private Animator anim;
+    private Rigidbody rb;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-
+        anim = this.gameObject.GetComponent<Animator>();
+        rb = this.gameObject.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -20,30 +22,35 @@ public class ObjectMovement : MonoBehaviour
           if(Input.GetKey(KeyCode.LeftShift))
           {
             this.gameObject.transform.rotation = Quaternion.Euler(this.gameObject.transform.rotation.x, 180, this.gameObject.transform.rotation.z);
-            this.gameObject.GetComponent<Rigidbody>().velocity = (Vector3.right*20);
+                rb.velocity = (Vector3.right*20);
+                anim.SetFloat("MoveSpeed", 3);
           }
           else
           {
             this.gameObject.transform.rotation = Quaternion.Euler(this.gameObject.transform.rotation.x, 180, this.gameObject.transform.rotation.z);
-            this.gameObject.GetComponent<Rigidbody>().velocity = (Vector3.right*10);
-          }
+                rb.velocity = (Vector3.right*10);
+                anim.SetFloat("MoveSpeed", 1);
+            }
         }
         else if(Input.GetKey(KeyCode.LeftArrow)/* || Input.GetAxis("Horizontal") < 0*/)
         {
           if(Input.GetKey(KeyCode.LeftShift))
           {
             this.gameObject.transform.rotation = Quaternion.Euler(this.gameObject.transform.rotation.x, 0, this.gameObject.transform.rotation.z);
-            this.gameObject.GetComponent<Rigidbody>().velocity = (Vector3.left*20);
-          }
+                rb.velocity = (Vector3.left*20);
+                anim.SetFloat("MoveSpeed", 3);
+            }
           else
           {
             this.gameObject.transform.rotation = Quaternion.Euler(this.gameObject.transform.rotation.x, 0, this.gameObject.transform.rotation.z);
-            this.gameObject.GetComponent<Rigidbody>().velocity = (Vector3.left*10);
-          }
+                rb.velocity = (Vector3.left*10);
+                anim.SetFloat("MoveSpeed", 1);
+            }
         }
         else
         {
-          this.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
+            rb.velocity = new Vector3(0, rb.velocity.y, 0);
+            anim.SetFloat("MoveSpeed", 1);
         }
     }
 }
