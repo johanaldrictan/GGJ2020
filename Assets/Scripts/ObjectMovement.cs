@@ -15,12 +15,12 @@ public class ObjectMovement : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("Horizontal") > 0)
+        if(Input.GetKey(KeyCode.RightArrow) /*|| Input.GetAxis("Horizontal") > 0*/)
         {
           this.gameObject.transform.rotation = Quaternion.Euler(this.gameObject.transform.rotation.x, 180, this.gameObject.transform.rotation.z);
           this.gameObject.GetComponent<Rigidbody>().velocity = (Vector3.right*10);
         }
-        else if(Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("Horizontal") < 0)
+        else if(Input.GetKey(KeyCode.LeftArrow)/* || Input.GetAxis("Horizontal") < 0*/)
         {
           this.gameObject.transform.rotation = Quaternion.Euler(this.gameObject.transform.rotation.x, 0, this.gameObject.transform.rotation.z);
           this.gameObject.GetComponent<Rigidbody>().velocity = (Vector3.left*10);
