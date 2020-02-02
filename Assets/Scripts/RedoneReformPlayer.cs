@@ -30,9 +30,12 @@ public class RedoneReformPlayer : MonoBehaviour
             if(selection)
             {
                 i = 0;
+                currentSphere = spheres[Mathf.Abs(i%spheres.Length)];
+                OnSelect(currentSphere.transform);
+                currentSphere.GetComponent<Light>().enabled = true;
                 selection = false;
             }
-            
+
 
             if(Input.GetKey(KeyCode.RightArrow) && Time.time > nextToggle)
             {
