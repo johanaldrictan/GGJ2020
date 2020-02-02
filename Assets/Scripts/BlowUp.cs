@@ -42,14 +42,14 @@ public class BlowUp : MonoBehaviour
           Vector3 direction = (Vector3.Normalize(pos1 - pos2)*10);
           children[i].GetComponent<Rigidbody>().velocity = (direction+player.GetComponent<Rigidbody>().velocity);
         }
-        //StartCoroutine(afterThree());
+        StartCoroutine(afterThree());
       }
     }
     IEnumerator afterThree()
     {
 
       yield return new WaitForSecondsRealtime(3);
-      Time.timeScale = 0.1f;
+      Time.timeScale = 0.00001f;
 
     }
 }
