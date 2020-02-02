@@ -78,7 +78,7 @@ public class ReformPlayer : MonoBehaviour
               selection = true;
             }
             GameObject.FindWithTag("Parent").GetComponent<Light>().enabled = false;
-            OnSelect(GameObject.FindWithTag("Parent").transform);
+            OnSelect(GameObject.FindWithTag("Parent").transform); //Event to change camera
             GameObject.FindWithTag("Parent").tag = "Child";
             spheres[i].tag = "Parent";
             spheres[i].GetComponent<Light>().enabled = true;

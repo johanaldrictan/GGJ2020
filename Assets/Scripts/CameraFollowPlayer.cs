@@ -14,11 +14,13 @@ public class CameraFollowPlayer : MonoBehaviour
     }
     private void OnEnable()
     {
-        ReformPlayer.OnSelect += SelectSlimePart;
+        RedoneReformPlayer.OnSelect += SelectSlimePart;
+        RedoneBlowUp.OnSelect += SelectSlimePart;
     }
     private void OnDisable()
     {
-        ReformPlayer.OnSelect += SelectSlimePart;
+        RedoneReformPlayer.OnSelect -= SelectSlimePart;
+        RedoneBlowUp.OnSelect -= SelectSlimePart;
     }
     private void SelectSlimePart(Transform t)
     {
