@@ -103,3 +103,16 @@ MonoBehaviour:
     volumeMin: 0.4
     volumeMax: 0.6
     source: {fileID: 0}
+  - name: Music
+    clips:
+    - {fileID: 8300000, guid: 1126e103bcc70614589675b767187793, type: 3}
+    - {fileID: 8300000, guid: b6f65b736ce5a7048960ea67c70d9de9, type: 3}
+    pitch: 1
+    volume: 0.2
+    loop: 0
+    output: {fileID: 24300002, guid: d867ece9072534d4cb898a3a2c0b8f43, type: 2}
+    pitchMin: 1
+    pitchMax: 1
+    volumeMin: 0.5
+    volumeMax: 0.5
+    source: {fileID: 0}

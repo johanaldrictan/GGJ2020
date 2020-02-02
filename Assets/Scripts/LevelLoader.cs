@@ -15,6 +15,7 @@ public class LevelLoader : MonoBehaviour
     private float transitionTime = 2f;
     [SerializeField]
     private PlaneShatterer shatterer;
+
     private void OnEnable()
     {
         //Only init events if there is an InGameMenu object
@@ -35,9 +36,34 @@ public class LevelLoader : MonoBehaviour
     private void Awake()
     {
         shatterer = GetComponentInChildren<PlaneShatterer>();
+        
+    }
+    private void Start()
+    {
+        if (SFXManager.instance != null)
+        {
+            AudioSource s = SFXManager.instance.GetSFX("Music").source;
+            if (SceneManager.GetActiveScene().buildIndex == 0)
+            {
+                s.clip = SFXManager.instance.GetSFX("Music").clips[0];
+                s.loop = true;
+                s.Play();
+            }
+            else
+            {
+                s.clip = SFXManager.instance.GetSFX("Music").clips[1];
+                s.loop = true;
+                s.Play();
+            }
+        }
     }
     public void LoadNextLevel()
     {
+        AudioSource s = SFXManager.instance.GetSFX("Music").source;
+        if(s.isPlaying)
+        {
+            s.Stop();
+        }
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
     IEnumerator LoadLevel(int levelIndex)
