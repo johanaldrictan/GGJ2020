@@ -384,7 +384,9 @@ PrefabInstance:
       propertyPath: m_XDamping
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1500130618, guid: 50456904bde878741b07e0f82b5ce0b9, type: 3}
+    - {fileID: 1500130617, guid: 50456904bde878741b07e0f82b5ce0b9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 50456904bde878741b07e0f82b5ce0b9, type: 3}
 --- !u!1 &1122726060 stripped
 GameObject:
@@ -562,18 +564,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1026137852}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1500130621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1500130615}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28c60fb1931b5a85aaa7ba16796af1a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1500130622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,6 +597,10 @@ MonoBehaviour:
   - {fileID: 1349975610}
   - {fileID: 651228518}
   - {fileID: 357244509}
+  yBoundNeg: -100
+  yBoundPos: -100
+  zBoundNeg: -100
+  zBoundPos: -100
 --- !u!114 &1500130623
 MonoBehaviour:
   m_ObjectHideFlags: 0
