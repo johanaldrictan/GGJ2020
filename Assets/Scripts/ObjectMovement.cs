@@ -17,13 +17,29 @@ public class ObjectMovement : MonoBehaviour
 
         if(Input.GetKey(KeyCode.RightArrow) /*|| Input.GetAxis("Horizontal") > 0*/)
         {
-          this.gameObject.transform.rotation = Quaternion.Euler(this.gameObject.transform.rotation.x, 180, this.gameObject.transform.rotation.z);
-          this.gameObject.GetComponent<Rigidbody>().velocity = (Vector3.right*10);
+          if(Input.GetKey(KeyCode.LeftShift))
+          {
+            this.gameObject.transform.rotation = Quaternion.Euler(this.gameObject.transform.rotation.x, 180, this.gameObject.transform.rotation.z);
+            this.gameObject.GetComponent<Rigidbody>().velocity = (Vector3.right*20);
+          }
+          else
+          {
+            this.gameObject.transform.rotation = Quaternion.Euler(this.gameObject.transform.rotation.x, 180, this.gameObject.transform.rotation.z);
+            this.gameObject.GetComponent<Rigidbody>().velocity = (Vector3.right*10);
+          }
         }
         else if(Input.GetKey(KeyCode.LeftArrow)/* || Input.GetAxis("Horizontal") < 0*/)
         {
-          this.gameObject.transform.rotation = Quaternion.Euler(this.gameObject.transform.rotation.x, 0, this.gameObject.transform.rotation.z);
-          this.gameObject.GetComponent<Rigidbody>().velocity = (Vector3.left*10);
+          if(Input.GetKey(KeyCode.LeftShift))
+          {
+            this.gameObject.transform.rotation = Quaternion.Euler(this.gameObject.transform.rotation.x, 0, this.gameObject.transform.rotation.z);
+            this.gameObject.GetComponent<Rigidbody>().velocity = (Vector3.left*20);
+          }
+          else
+          {
+            this.gameObject.transform.rotation = Quaternion.Euler(this.gameObject.transform.rotation.x, 0, this.gameObject.transform.rotation.z);
+            this.gameObject.GetComponent<Rigidbody>().velocity = (Vector3.left*10);
+          }
         }
         else
         {
