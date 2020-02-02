@@ -14,7 +14,7 @@ public class StopSphereAtParent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(stopper.transform.position.x-1f < this.gameObject.transform.position.x && this.gameObject.transform.position.x < stopper.transform.position.x +1f)
+        if(stopper.transform.position.z-1f < this.gameObject.transform.position.z && this.gameObject.transform.position.z < stopper.transform.position.z +1f)
         {
             this.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
         }

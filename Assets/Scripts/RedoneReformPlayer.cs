@@ -79,7 +79,7 @@ public class RedoneReformPlayer : MonoBehaviour
                   }
                   if(j == spheres.Length-1)
                   {
-                    parent.transform.position = new Vector3(parent.transform.position.x, parent.transform.position.y, parent.transform.position.z);
+                    parent.transform.position = new Vector3(currentSphere.transform.position.x, currentSphere.transform.position.y, currentSphere.transform.position.z);
                     parent.transform.rotation = Quaternion.Euler(0, 0, 0);
                     StartCoroutine(reformSlime());
                   }
@@ -109,13 +109,13 @@ public class RedoneReformPlayer : MonoBehaviour
       int k = 0;
       while(k < childSpheres.Length)
       {
-        for(int x = -1; x < 2; x++)
+        for(int z = -1; z < 2; z++)
         {
           for(int y = -1; y < 2; y++)
           {
-            if(x != 0 || y != 0)
+            if(z != 0 || y != 0)
             {
-              childSpheres[k].transform.localPosition = new Vector3(x,y,0);
+              childSpheres[k].transform.localPosition = new Vector3(0,y,z);
               childSpheres[k].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
               k++;
             }

@@ -22,13 +22,13 @@ public class ObjectMovement : MonoBehaviour
           if(Input.GetKey(KeyCode.LeftShift))
           {
             this.gameObject.transform.rotation = Quaternion.Euler(this.gameObject.transform.rotation.x, 180, this.gameObject.transform.rotation.z);
-                rb.velocity = (Vector3.right*20);
+                rb.velocity = (Vector3.forward*20);
                 anim.SetFloat("MoveSpeed", 3);
           }
           else
           {
             this.gameObject.transform.rotation = Quaternion.Euler(this.gameObject.transform.rotation.x, 180, this.gameObject.transform.rotation.z);
-                rb.velocity = (Vector3.right*10);
+                rb.velocity = (Vector3.forward*10);
                 anim.SetFloat("MoveSpeed", 1);
             }
         }
@@ -37,13 +37,13 @@ public class ObjectMovement : MonoBehaviour
           if(Input.GetKey(KeyCode.LeftShift))
           {
             this.gameObject.transform.rotation = Quaternion.Euler(this.gameObject.transform.rotation.x, 0, this.gameObject.transform.rotation.z);
-                rb.velocity = (Vector3.left*20);
+                rb.velocity = (Vector3.back*20);
                 anim.SetFloat("MoveSpeed", 3);
             }
           else
           {
             this.gameObject.transform.rotation = Quaternion.Euler(this.gameObject.transform.rotation.x, 0, this.gameObject.transform.rotation.z);
-                rb.velocity = (Vector3.left*10);
+                rb.velocity = (Vector3.back*10);
                 anim.SetFloat("MoveSpeed", 1);
             }
         }

@@ -13,6 +13,6 @@ public class LocktoXY : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x,this.gameObject.transform.position.y, 0);
+      this.gameObject.transform.position = new Vector3(0,this.gameObject.transform.position.y, this.gameObject.transform.position.z);
     }
 }
