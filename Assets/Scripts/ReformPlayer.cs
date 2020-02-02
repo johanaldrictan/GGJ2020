@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ReformPlayer : MonoBehaviour
 {
+    public delegate void SelectSlime(Transform t);
+    public static event SelectSlime OnSelect;
     GameObject player;
     GameObject parent;
     List<GameObject> spheres;
@@ -72,6 +74,7 @@ public class ReformPlayer : MonoBehaviour
               selection = true;
             }
             GameObject.FindWithTag("Parent").GetComponent<Light>().enabled = false;
+            OnSelect(GameObject.FindWithTag("Parent").transform);
             GameObject.FindWithTag("Parent").tag = "Child";
             spheres[i].tag = "Parent";
             spheres[i].GetComponent<Light>().enabled = true;
