@@ -22,7 +22,6 @@ public class CameraFollowPlayer : MonoBehaviour
     private void SelectSlimePart(Transform t)
     {
         Transform parentT = t;
-        Debug.Log("Reee");
         virtualCamera.Follow = parentT;
     }
 }

@@ -22,6 +22,8 @@ public class BlowUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      children = GameObject.FindGameObjectsWithTag("Child");
+      parent = GameObject.FindWithTag("Parent");
       if(Input.GetKey(KeyCode.Space) && Time.time > nextSpace && player.active == true)
       {
         parent.transform.parent = null;
@@ -36,6 +38,7 @@ public class BlowUp : MonoBehaviour
           children[i].GetComponent<MeshRenderer>().enabled = true;
           children[i].GetComponent<SphereCollider>().enabled = true;
           children[i].GetComponent<Rigidbody>().useGravity = true;
+          children[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
           children[i].transform.parent = null;
           Vector3 pos1 = children[i].transform.position;
           Vector3 pos2 = parent.transform.position;
@@ -47,7 +50,6 @@ public class BlowUp : MonoBehaviour
     }
     IEnumerator afterThree()
     {
-
       yield return new WaitForSecondsRealtime(3);
       Time.timeScale = 0.00001f;
 
