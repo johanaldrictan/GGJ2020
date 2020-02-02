@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &688104853292496038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 688104853292496032}
+  - component: {fileID: 688104853292496039}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &688104853292496032
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688104853292496038}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &688104853292496039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688104853292496038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7679b02bcfbf36d459fd569ce6cd78a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffects:
+  - name: TransitionBreak
+    clips:
+    - {fileID: 8300000, guid: f4e29254a7d245e4899c2be4997108bb, type: 3}
+    pitch: 1
+    volume: 0.01
+    loop: 0
+    output: {fileID: -7242593378811068952, guid: bdfcf7740eede334f928a7c3ad3e26cc,
+      type: 2}
+    pitchMin: 0.9
+    pitchMax: 1.2
+    volumeMin: 0
+    volumeMax: 0.03
+    source: {fileID: 0}
+  - name: TransitionRepair
+    clips:
+    - {fileID: 8300000, guid: 3c9a9187ea1508148bce46f0650ab356, type: 3}
+    pitch: 1
+    volume: 0.01
+    loop: 0
+    output: {fileID: -7242593378811068952, guid: bdfcf7740eede334f928a7c3ad3e26cc,
+      type: 2}
+    pitchMin: 0.9
+    pitchMax: 1.2
+    volumeMin: 0
+    volumeMax: 0.03
+    source: {fileID: 0}
+  - name: UI_Hover
+    clips:
+    - {fileID: 8300000, guid: db91a4f534c080b42bffa153486f43a3, type: 3}
+    - {fileID: 8300000, guid: 05c64c474025c624aa5a695ab92a5208, type: 3}
+    - {fileID: 8300000, guid: d9791014acb977047a51471e7918b781, type: 3}
+    - {fileID: 8300000, guid: 4e348e08bc95f5f408c4d5d648b15a95, type: 3}
+    - {fileID: 8300000, guid: 88661add970a47c4c89b3ff4d64a4348, type: 3}
+    pitch: 1
+    volume: 0.5
+    loop: 0
+    output: {fileID: -596362148824485680, guid: bdfcf7740eede334f928a7c3ad3e26cc,
+      type: 2}
+    pitchMin: 0.8
+    pitchMax: 1.2
+    volumeMin: 0.4
+    volumeMax: 0.6
+    source: {fileID: 0}
+  - name: UI_Click
+    clips:
+    - {fileID: 8300000, guid: bb67d99d8cd16b744b592b34537734a3, type: 3}
+    - {fileID: 8300000, guid: 757d1adf7bf4e7947b01e03c6a016abe, type: 3}
+    - {fileID: 8300000, guid: 9105e7ec57699dd4b9b823c79e923161, type: 3}
+    - {fileID: 8300000, guid: dd6e510b1811a504da3da7a054093ab3, type: 3}
+    pitch: 1
+    volume: 0.5
+    loop: 0
+    output: {fileID: -596362148824485680, guid: bdfcf7740eede334f928a7c3ad3e26cc,
+      type: 2}
+    pitchMin: 0.8
+    pitchMax: 1.2
+    volumeMin: 0.4
+    volumeMax: 0.6
+    source: {fileID: 0}

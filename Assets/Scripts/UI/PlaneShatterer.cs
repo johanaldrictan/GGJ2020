@@ -8,10 +8,6 @@ public class PlaneShatterer : MonoBehaviour
     private float transitionTime = 1f;
     [SerializeField]
     private Animator animator;
-    [SerializeField]
-    private AudioClip glassShatter;
-    [SerializeField]
-    private AudioClip glassRepair;
     private void OnEnable()
     {
         InGameMenu.OnTransition += ShatterOrRepair;
@@ -64,5 +60,13 @@ public class PlaneShatterer : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         animator.SetTrigger("Shatter");
         yield return new WaitForSeconds(transitionTime);
+    }
+    public void PlayShatter()
+    {
+        SFXManager.instance.PlayWithBothMod("TransitionBreak");
+    }
+    public void PlayRepair()
+    {
+        SFXManager.instance.PlayWithBothMod("TransitionRepair");
     }
 }

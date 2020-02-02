@@ -38,6 +38,11 @@ public class InGameMenu : MonoBehaviour
         else
             StartCoroutine(DisableEscapeMenu());
     }
+    public void CloseEscapeMenu()
+    {
+        InEscapeMenu = false;
+        StartCoroutine(DisableEscapeMenu());
+    }
     IEnumerator EnableEscapeMenu()
     {
         OnTransition(InEscapeMenu);
