@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlaneShatterer : MonoBehaviour
 {
     [SerializeField]
-    private float transitionTime = 1f;
+    private float transitionTime = 3f;
     [SerializeField]
     private Animator animator;
 

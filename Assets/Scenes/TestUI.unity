@@ -132,7 +132,6 @@ GameObject:
   - component: {fileID: 23628425}
   - component: {fileID: 23628424}
   - component: {fileID: 23628423}
-  - component: {fileID: 23628428}
   - component: {fileID: 23628426}
   m_Layer: 0
   m_Name: Main Camera
@@ -213,21 +212,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 23628422}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f5a2d3c3264e4c30b67d48c1f0640b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &23628428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 23628422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d18acfc0ca89548b98a1e1e06288980b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &383575962
@@ -249,8 +236,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &383575963
-MeshCollider:
+--- !u!65 &383575963
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -259,10 +246,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &383575964
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -533,7 +519,7 @@ MeshCollider:
   m_GameObject: {fileID: 600726569}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 30
@@ -1276,7 +1262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1746887268
 Transform:
   m_ObjectHideFlags: 0
@@ -1406,6 +1392,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 611555577171773916, guid: 591392b947196b3489d9b5bdd318ccea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4478820304359881679, guid: 591392b947196b3489d9b5bdd318ccea,
         type: 3}
       propertyPath: m_LocalScale.x
