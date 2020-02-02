@@ -17,7 +17,7 @@ public class ObjectMovement : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetKey(KeyCode.RightArrow) /*|| Input.GetAxis("Horizontal") > 0*/)
+        if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)/*|| Input.GetAxis("Horizontal") > 0*/)
         {
           if(Input.GetKey(KeyCode.LeftShift))
           {
@@ -32,7 +32,7 @@ public class ObjectMovement : MonoBehaviour
                 anim.SetFloat("MoveSpeed", 1);
             }
         }
-        else if(Input.GetKey(KeyCode.LeftArrow)/* || Input.GetAxis("Horizontal") < 0*/)
+        else if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)/* || Input.GetAxis("Horizontal") < 0*/)
         {
           if(Input.GetKey(KeyCode.LeftShift))
           {

@@ -37,7 +37,7 @@ public class RedoneReformPlayer : MonoBehaviour
             }
 
 
-            if(Input.GetKey(KeyCode.RightArrow) && Time.time > nextToggle)
+            if((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && Time.time > nextToggle)
             {
                 nextToggle = Time.time + toggleTimer;
                 spheres[Mathf.Abs(i%spheres.Length)].GetComponent<Light>().enabled = false;
@@ -47,7 +47,7 @@ public class RedoneReformPlayer : MonoBehaviour
                 currentSphere.GetComponent<Light>().enabled = true;
 
             }
-            else if(Input.GetKey(KeyCode.LeftArrow) && Time.time > nextToggle)
+            else if((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && Time.time > nextToggle)
             {
                 nextToggle = Time.time + toggleTimer;
                 spheres[Mathf.Abs(i%spheres.Length)].GetComponent<Light>().enabled = false;
