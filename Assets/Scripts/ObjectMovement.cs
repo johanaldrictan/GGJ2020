@@ -21,14 +21,14 @@ public class ObjectMovement : MonoBehaviour
         {
           if(Input.GetKey(KeyCode.LeftShift))
           {
-            this.gameObject.transform.rotation = Quaternion.Euler(this.gameObject.transform.rotation.x, 180, this.gameObject.transform.rotation.z);
-                rb.velocity = (Vector3.forward*20);
+            this.gameObject.transform.rotation = Quaternion.Euler(this.gameObject.transform.rotation.x, 270, this.gameObject.transform.rotation.z);
+                rb.velocity = (Vector3.back*5f);
                 anim.SetFloat("MoveSpeed", 3);
           }
           else
           {
-            this.gameObject.transform.rotation = Quaternion.Euler(this.gameObject.transform.rotation.x, 180, this.gameObject.transform.rotation.z);
-                rb.velocity = (Vector3.forward*10);
+            this.gameObject.transform.rotation = Quaternion.Euler(this.gameObject.transform.rotation.x, 270, this.gameObject.transform.rotation.z);
+                rb.velocity = (Vector3.back*2.5f);
                 anim.SetFloat("MoveSpeed", 1);
             }
         }
@@ -36,14 +36,14 @@ public class ObjectMovement : MonoBehaviour
         {
           if(Input.GetKey(KeyCode.LeftShift))
           {
-            this.gameObject.transform.rotation = Quaternion.Euler(this.gameObject.transform.rotation.x, 0, this.gameObject.transform.rotation.z);
-                rb.velocity = (Vector3.back*20);
+            this.gameObject.transform.rotation = Quaternion.Euler(this.gameObject.transform.rotation.x, 90, this.gameObject.transform.rotation.z);
+                rb.velocity = (Vector3.forward*5f);
                 anim.SetFloat("MoveSpeed", 3);
             }
           else
           {
-            this.gameObject.transform.rotation = Quaternion.Euler(this.gameObject.transform.rotation.x, 0, this.gameObject.transform.rotation.z);
-                rb.velocity = (Vector3.back*10);
+            this.gameObject.transform.rotation = Quaternion.Euler(this.gameObject.transform.rotation.x, 90, this.gameObject.transform.rotation.z);
+                rb.velocity = (Vector3.forward*2.5f);
                 anim.SetFloat("MoveSpeed", 1);
             }
         }
