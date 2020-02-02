@@ -41,6 +41,6 @@ public class Sound
     [Range(0.0f, 1.0f)]
     public float volumeMax = 1.0f;
 
-    [HideInInspector]
+    //[HideInInspector]
     public AudioSource source;
 }
