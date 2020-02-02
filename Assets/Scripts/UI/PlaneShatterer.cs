@@ -5,9 +5,36 @@ using UnityEngine;
 public class PlaneShatterer : MonoBehaviour
 {
     [SerializeField]
-    private float transitionTime = 3f;
+    private float transitionTime = 1f;
     [SerializeField]
     private Animator animator;
+    [SerializeField]
+    private AudioClip glassShatter;
+    [SerializeField]
+    private AudioClip glassRepair;
+    private void OnEnable()
+    {
+        InGameMenu.OnTransition += ShatterOrRepair;
+    }
+    private void OnDisable()
+    {
+        InGameMenu.OnTransition -= ShatterOrRepair;
+    }
+    private void ShatterOrRepair(bool transitionIn)
+    {
+        if(transitionIn)
+        {
+            RepairScreen();
+        }
+        else
+        {
+            ShatterScreen();
+        }
+    }
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     public void ShatterScreen()
     {
