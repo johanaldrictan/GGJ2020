@@ -32,21 +32,28 @@ public class RedoneReformPlayer : MonoBehaviour
                 i = 0;
                 selection = false;
             }
-            currentSphere = spheres[Mathf.Abs(i%spheres.Length)];
-            OnSelect(currentSphere.transform);
-            currentSphere.GetComponent<Light>().enabled = true;
+            
 
             if(Input.GetKey(KeyCode.RightArrow) && Time.time > nextToggle)
             {
                 nextToggle = Time.time + toggleTimer;
                 spheres[Mathf.Abs(i%spheres.Length)].GetComponent<Light>().enabled = false;
                 i += 1;
+                currentSphere = spheres[Mathf.Abs(i%spheres.Length)];
+                OnSelect(currentSphere.transform);
+                currentSphere.GetComponent<Light>().enabled = true;
+
             }
             else if(Input.GetKey(KeyCode.LeftArrow) && Time.time > nextToggle)
             {
-              nextToggle = Time.time + toggleTimer;
-              spheres[Mathf.Abs(i%spheres.Length)].GetComponent<Light>().enabled = false;
-              i -= 1;
+                nextToggle = Time.time + toggleTimer;
+                spheres[Mathf.Abs(i%spheres.Length)].GetComponent<Light>().enabled = false;
+                i -= 1;
+                currentSphere = spheres[Mathf.Abs(i % spheres.Length)];
+
+                OnSelect(currentSphere.transform);
+                currentSphere.GetComponent<Light>().enabled = true;
+
             }
             else if(Input.GetKey(KeyCode.Space) && Time.time > nextToggle)
             {
