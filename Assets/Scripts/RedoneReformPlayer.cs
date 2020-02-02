@@ -73,13 +73,12 @@ public class RedoneReformPlayer : MonoBehaviour
                     spheres[j].GetComponent<StopSphereAtParent>().enabled = true;
                     spheres[j].GetComponent<StopSphereAtParent>().stopper = currentSphere;
                     Vector3 pos1 = spheres[j].transform.position;
-                    Vector3 pos2 = new Vector3(currentSphere.transform.position.x, currentSphere.transform.position.y+1, currentSphere.transform.position.z);
+                    Vector3 pos2 = new Vector3(currentSphere.transform.position.x, currentSphere.transform.position.y+.5f, currentSphere.transform.position.z);
                     Vector3 direction = (Vector3.Normalize(pos2 - pos1)*30);
                     spheres[j].GetComponent<Rigidbody>().velocity = (direction);
                   }
                   if(j == spheres.Length-1)
                   {
-                    parent.transform.position = new Vector3(currentSphere.transform.position.x, currentSphere.transform.position.y, currentSphere.transform.position.z);
                     parent.transform.rotation = Quaternion.Euler(0, 0, 0);
                     StartCoroutine(reformSlime());
                   }

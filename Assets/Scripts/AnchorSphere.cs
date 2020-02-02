@@ -13,6 +13,6 @@ public class AnchorSphere : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.gameObject.transform.position = new Vector3(this.gameObject.transform.parent.position.x,this.gameObject.transform.parent.position.y - .2f, this.gameObject.transform.parent.position.z);
+        this.gameObject.transform.position = new Vector3(this.gameObject.transform.parent.position.x, this.gameObject.transform.parent.position.y - .2f, this.gameObject.transform.parent.position.z);
     }
 }
