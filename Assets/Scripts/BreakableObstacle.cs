@@ -3,14 +3,26 @@
 //Goes on the empty parent of both Whole and Pieces object
 public class BreakableObstacle : MonoBehaviour
 {
-    [SerializeField] private GameObject whole; //This object is active when environment is "repaired"
-    [SerializeField] private GameObject[] pieces; //This object is active when environment is "broken"
+    [SerializeField] private GameObject[] whole; //This object is active when environment is "repaired". These should be stationary.
+    [SerializeField] private GameObject[] pieces; //This object is active when environment is "broken". These may have rigidbodies.
     private Vector3[] piecesPos;
     private Quaternion[] piecesRot;
     private bool repaired = true;
 
+    private static BreakableObstacle bo;
+
     private void Awake()
     {
+        //Singleton
+        if (bo == null)
+        {
+            bo = this;
+        }
+        else if (bo != this)
+        {
+            Debug.LogError("There is already a BreakableObject.", bo.gameObject);
+        }
+
         piecesPos = new Vector3[pieces.Length];
         for (int i = 0; i < pieces.Length; i++)
         {
@@ -21,6 +33,14 @@ public class BreakableObstacle : MonoBehaviour
         for (int i = 0; i < pieces.Length; i++)
         {
             piecesRot[i] = pieces[i].transform.rotation;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if(bo == this)
+        {
+            bo = null;
         }
     }
 
@@ -49,10 +69,13 @@ public class BreakableObstacle : MonoBehaviour
     private void ToggleRepair(bool repair)
     {
         repaired = repair;
-        whole.SetActive(repair);
-        foreach (GameObject go in pieces)
+        foreach (GameObject w_go in whole)
         {
-            go.SetActive(!repair);
+            w_go.SetActive(repair);
+        }
+        foreach (GameObject p_go in pieces)
+        {
+            p_go.SetActive(!repair);
         }
     }
 }
