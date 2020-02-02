@@ -59,13 +59,13 @@ public class ReformPlayer : MonoBehaviour
               for(int i = 0; i < childSpheres.Length; i++)
               {
                 //children[i].GetComponent<MeshRenderer>().enabled = true;
-                //children[i].GetComponent<SphereCollider>().enabled = true;
+                //childSpheres[i].GetComponent<SphereCollider>().enabled = false;
                 //children[i].GetComponent<Rigidbody>().useGravity = true;
                 //children[i].transform.parent = null;
-                //childSpheres[i].GetComponent<StopSphereAtParent>().enabled = true;
+                childSpheres[i].GetComponent<StopSphereAtParent>().enabled = true;
                 Vector3 pos1 = childSpheres[i].transform.position;
-                Vector3 pos2 = new Vector3(parent.transform.position.x,parent.transform.position.y+1, parent.transform.position.z);
-                Vector3 direction = (Vector3.Normalize(pos2 - pos1)*20);
+                Vector3 pos2 = new Vector3(parent.transform.position.x, parent.transform.position.y+3, parent.transform.position.z);
+                Vector3 direction = (Vector3.Normalize(pos2 - pos1)*30);
                 childSpheres[i].GetComponent<Rigidbody>().velocity = (direction+player.GetComponent<Rigidbody>().velocity);
 
               }

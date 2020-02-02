@@ -22,7 +22,7 @@ public class BlowUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if(Input.GetKey(KeyCode.Space) && Time.time > nextSpace)
+      if(Input.GetKey(KeyCode.Space) && Time.time > nextSpace && player.active == true)
       {
         parent.transform.parent = null;
         player.SetActive(false);
