@@ -24,6 +24,7 @@ public class RedoneBlowUp : MonoBehaviour
     {
       if(Input.GetKey(KeyCode.Space) && Time.time > nextSpace && player.activeInHierarchy == true)
       {
+            SFXManager.instance.PlayRandomWithMod("Pop");
         parent.transform.parent = null;
         player.SetActive(false);
         parent.GetComponent<MeshRenderer>().enabled = true;

@@ -116,3 +116,45 @@ MonoBehaviour:
     volumeMin: 0.5
     volumeMax: 0.5
     source: {fileID: 0}
+  - name: Pop
+    clips:
+    - {fileID: 8300000, guid: 8095dd71ad21cfb4aa4f72e243977480, type: 3}
+    - {fileID: 8300000, guid: 3cb00c99da4119546bb137b12f39dc5c, type: 3}
+    - {fileID: 8300000, guid: c8dd5b411e21ed944b9cb26badb93294, type: 3}
+    - {fileID: 8300000, guid: 65e23816d8642fa4098e15ce92e34666, type: 3}
+    - {fileID: 8300000, guid: 49d731fc77b0c6942a2224fe7011a8ee, type: 3}
+    - {fileID: 8300000, guid: 881d673bc3c838a468e582ebe1da70ba, type: 3}
+    pitch: 1
+    volume: 0.5
+    loop: 0
+    output: {fileID: 8311749041034736346, guid: bdfcf7740eede334f928a7c3ad3e26cc,
+      type: 2}
+    pitchMin: 0.8
+    pitchMax: 1.2
+    volumeMin: 0.5
+    volumeMax: 0.5
+    source: {fileID: 0}
+  - name: Repair
+    clips:
+    - {fileID: 8300000, guid: 8241cdeb217ffec4ab0b8057cd608216, type: 3}
+    pitch: 1
+    volume: 0.5
+    loop: 0
+    output: {fileID: 24300002, guid: bdfcf7740eede334f928a7c3ad3e26cc, type: 2}
+    pitchMin: 0.8
+    pitchMax: 1.2
+    volumeMin: 0.5
+    volumeMax: 0.5
+    source: {fileID: 0}
+  - name: Break
+    clips:
+    - {fileID: 8300000, guid: bd4cd0f7a47047649bb646c9f4e03031, type: 3}
+    pitch: 1
+    volume: 0.5
+    loop: 0
+    output: {fileID: 24300002, guid: bdfcf7740eede334f928a7c3ad3e26cc, type: 2}
+    pitchMin: 0.8
+    pitchMax: 1.2
+    volumeMin: 0.5
+    volumeMax: 0.5
+    source: {fileID: 0}

@@ -48,6 +48,7 @@ public class BreakableObstacle : MonoBehaviour
     {
         if (repaired && Input.GetButtonDown("Break"))
         {
+            SFXManager.instance.PlayWithBothMod("Break");
             ToggleRepair(false);
         }
         else if (!repaired && Input.GetButtonDown("Repair"))
@@ -62,12 +63,14 @@ public class BreakableObstacle : MonoBehaviour
                     rb.velocity = Vector3.zero;
                 }
             }
+            SFXManager.instance.PlayWithBothMod("Repair");
             ToggleRepair(true);
         }
     }
 
     private void ToggleRepair(bool repair)
     {
+        
         repaired = repair;
         foreach (GameObject w_go in whole)
         {
